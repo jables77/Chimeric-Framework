@@ -1,6 +1,5 @@
 package com.chimeric.framework.physics;
 
-import com.chimeric.framework.math.Range;
 import com.chimeric.framework.math.Vector;
 import com.chimeric.framework.physics.models.Circle;
 

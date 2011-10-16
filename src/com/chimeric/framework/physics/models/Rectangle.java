@@ -46,4 +46,11 @@ public class Rectangle implements Moveable {
 	public Vector getPosition() {
 		return this.position;
 	}
+
+	@Override
+	public void initialize() {
+		this.position.set(0);
+		this.velocity.set(0);
+		this.acceleration.set(0);
+	}
 }

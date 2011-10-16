@@ -40,4 +40,12 @@ public class Circle implements Moveable {
 	public Vector2d getPosition() {
 		return (Vector2d) this.position;
 	}
+
+	@Override
+	public void initialize() {
+		this.radius = 0;
+		this.position.set(0);
+		this.velocity.set(0);
+		this.acceleration.set(0);
+	}
 }

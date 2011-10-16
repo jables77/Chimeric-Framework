@@ -6,10 +6,8 @@ import android.view.View.OnTouchListener;
 
 import com.chimeric.framework.math.Vector2d;
 import com.chimeric.framework.resource.ResourceFactory;
-import com.chimeric.framework.resource.Synchronizer;
 
 public class TouchHandler
-extends Synchronizer<TouchEvent>
 implements OnTouchListener {
 	private ResourceFactory<TouchEvent> factory = new ResourceFactory<TouchEvent>() {
 		@Override

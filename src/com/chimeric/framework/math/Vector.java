@@ -30,6 +30,21 @@ public class Vector implements Initializeable {
 	
 	/**
 	 * 
+	 * @param dimensionIndex
+	 * @param value
+	 */
+	public void setCoordinate(int dimensionIndex, float value) {
+		this.dimensions[dimensionIndex] = value;
+	}
+	
+	public void set(float value) {
+		for (int i = 0; i < this.dimensions.length; i++) {
+			this.dimensions[i] = value;
+		}
+	}
+	
+	/**
+	 * 
 	 * @return
 	 */
 	public int getDimensionCount() {
@@ -47,12 +62,9 @@ public class Vector implements Initializeable {
 	 * @return
 	 */
 	public Vector increment(Vector vector) {
-		int dimensionsToIncrement = getLeastCommonDimensions(vector);
-		
-		for (int i = 0; i < dimensionsToIncrement; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			this.dimensions[i] += vector.dimensions[i];
-		}
-		
+		}		
 		return this;
 	}
 	
@@ -62,12 +74,9 @@ public class Vector implements Initializeable {
 	 * @return
 	 */
 	public Vector decrement(Vector vector) {
-		int dimensionsToDecrement = getLeastCommonDimensions(vector);
-		
-		for (int i = 0; i < dimensionsToDecrement; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			this.dimensions[i] -= vector.dimensions[i];
-		}
-		
+		}		
 		return this;
 	}
 	
@@ -77,9 +86,7 @@ public class Vector implements Initializeable {
 	 * @return
 	 */
 	public Vector multiply(Vector vector) {
-		int dimensionsToMultiply = getLeastCommonDimensions(vector);
-		
-		for (int i = 0; i < dimensionsToMultiply; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			this.dimensions[i] *= vector.dimensions[i];
 		}
 		
@@ -92,9 +99,7 @@ public class Vector implements Initializeable {
 	 * @return
 	 */
 	public Vector divide(Vector vector) {
-		int dimensionsToDivide = getLeastCommonDimensions(vector);
-		
-		for (int i = 0; i < dimensionsToDivide; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			this.dimensions[i] /= vector.dimensions[i];
 		}
 		
@@ -132,15 +137,9 @@ public class Vector implements Initializeable {
 		return result;
 	}
 	
-	public float dotProduct(Vector other) throws VectorOperationException {
-		int dimensionCount = this.dimensions.length;
-		
-		if (dimensionCount != other.dimensions.length) {
-			throw new VectorOperationException("Vectors must have the same number of dimensions to calculate dot product.");
-		}
-		
+	public float dotProduct(Vector other) {
 		float result = 0;
-		for (int i = 0; i < dimensionCount; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			result += (this.dimensions[i] * other.dimensions[i]);
 		}		
 		
@@ -165,34 +164,33 @@ public class Vector implements Initializeable {
 	 * @param destination
 	 */
 	public void copyTo(Vector destination) {
-		int dimensionsToCopy = getLeastCommonDimensions(destination);
-		
-		for (int i = 0; i < dimensionsToCopy; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			destination.dimensions[i] = this.dimensions[i];
 		}
 	}
 	
+	/**
+	 * 
+	 * @param destination
+	 */
 	public void copyTo(float[] destination) {
-		int dimensionsToCopy = getLeastCommondimensions(destination);
-		
-		for (int i = 0; i < dimensionsToCopy; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			destination[i] = this.dimensions[i];
 		}		
-		
 	}
 	
+	/**
+	 * 
+	 * @param source
+	 */
 	public void copyFrom(Vector source) {
-		int dimensionsToCopy = getLeastCommonDimensions(source);
-		
-		for (int i = 0; i < dimensionsToCopy; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			this.dimensions[i] = source.dimensions[i];
 		}
 	}
 	
 	public void copyFrom(float[] source) {
-		int dimensionsToCopy = getLeastCommondimensions(source);
-		
-		for (int i = 0; i < dimensionsToCopy; i++) {
+		for (int i = 0; i < this.dimensions.length; i++) {
 			this.dimensions[i] = source[i];
 		}		
 	}

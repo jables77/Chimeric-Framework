@@ -1,10 +1,10 @@
 package com.chimeric.framework.math;
 
-public class Range {
+public class Interval {
 	private float minimum;
 	private float maximum;
 	
-	public Range(float endpoint1, float endpoint2) {
+	public Interval(float endpoint1, float endpoint2) {
 		if (endpoint1 < endpoint2) {
 			this.minimum = endpoint1;
 			this.maximum = endpoint2;
@@ -15,19 +15,19 @@ public class Range {
 		}
 	}
 	
-	public boolean testInclusive(float test) {
+	public boolean testClosed(float test) {
 		return this.minimum <= test && test <= this.maximum;
 	}
 	
-	public boolean testExclusive(float test) {
+	public boolean testOpen(float test) {
 		return this.minimum < test && test < this.maximum;
 	}
 	
-	public boolean testExclusiveMinimum(float test) {
+	public boolean testLeftOpen(float test) {
 		return this.minimum < test && test <= this.maximum;
 	}
 	
-	public boolean testExclusiveMaximum(float test) {
+	public boolean testRightOpen(float test) {
 		return this.minimum <= test && test < this.maximum;
 	}
 	

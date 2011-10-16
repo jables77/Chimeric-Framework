@@ -2,8 +2,9 @@ package com.chimeric.framework.physics;
 
 import com.chimeric.framework.math.Matrix;
 import com.chimeric.framework.math.Vector;
+import com.chimeric.framework.resource.Initializeable;
 
-public interface Moveable {
+public interface Moveable extends Initializeable {
 	/**
 	 * 
 	 * @return
